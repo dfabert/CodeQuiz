@@ -18,14 +18,14 @@ var questions = [
         //Start Asking questions questions
         i = 0;
         console.log("It has begun");
+        questionDisplay(i,questions);
+
+        //Change styles to display correct parts of HTML
         var splash = document.getElementById('splash');
         splash.style.display = "none";
         var quiz = document.getElementById('quiz');
         quiz.style.display = "block";
         var results = document.getElementById('results');
-
-
-        questionDisplay(i,questions);
     });
 
 //Display of Questions//
@@ -68,10 +68,26 @@ function userAnswer(userAnswer){
     if(i < questions.length){               
         questionDisplay(i,questions);
     }else{
-        //We are done
         console.log('we are done!');
         quiz.style.display = "none";
         results.style.display = 'block';
+
+        var displayedResults = document.getElementsByTagName('em');
+        displayedResults[0].innerHTML = correctAnswers;
+
+        var submit = document.getElementById('submit');
+
+        submit.addEventListener('click', function(event) {
+            var initials = document.querySelector("#initials").value;
+            console.log(initials);
+
+            if (initials === '') {
+                alert('Initials Cannot Be Blank');
+            }else{submit.style.display = 'none';}
+
+            localStorage.setItem('initials', initials);
+            localStorage.setItem('correctAnswers');
+        })
     }
 }
       

@@ -52,13 +52,21 @@
     <!-- Results -->
     <div class="container" id = 'results' style="display: none;">
       <div class="row">
-        <div class="col-sm-9">
-          <div class="row">You scored:</div>
-          <div class="row">Enter your initials to save score</div>
+        <div class="col-sm">
+          <div class="row, text-center">You scored:  <em>0</em></div>
+          <div class="row, text-center">
+            <form name="initials">
+              <label for="initials">Initials:</label>
+              <input type="text" name="initials" id="initials"/><br>
+              <button type="button" class="btn btn-success" id="submit">Submit My Score</button>
+            </form>
+          </div>
         </div>
+
+        <!--Possible addition of all time high scores for later 
         <div class="col-sm-3">
-          All time scores
-        </div>
+            All time scores
+        </div>-->
       </div>
     </div>
 
