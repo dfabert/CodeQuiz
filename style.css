@@ -1,3 +1,16 @@
-.hidden{
-    opacity: 0;
+.timeScoreHeading {
+    text-align: center;
+    margin: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+li {
+    padding: 5px;
+    outline: grey;
+    border: 1px solid;
+    border-radius: 25px;
+    padding: 10px;
+    box-shadow: 5px 10px 8px #888888;
+    margin: 5px;
 }
