@@ -72,9 +72,6 @@ function userAnswer(userAnswer){
         console.log('we are done!');
         quiz.style.display = "none";
         results.style.display = 'block';
-
-        
-
     }
 }
       
