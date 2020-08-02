@@ -24,8 +24,10 @@ var questions = [
         quiz.style.display = "block";
         var results = document.getElementById('results');
 
+
         questionDisplay(i,questions);
     });
+
 //Display of Questions//
 function questionDisplay(){
     console.log('questionDisplay');
@@ -38,6 +40,8 @@ function questionDisplay(){
 
 var correctAnswers = 0;
 var totalQuestions = 0;
+var score = document.getElementById('score');
+var outOf = document.getElementById('outOf');
 
 //User Input and Scoring//
 function userAnswer(userAnswer){
@@ -57,6 +61,9 @@ function userAnswer(userAnswer){
     }
 
     i++ 
+    score.innerHTML=correctAnswers;
+    outOf.innerHTML=totalQuestions;
+
     //if we keep going or not
     if(i < questions.length){               
         questionDisplay(i,questions);
