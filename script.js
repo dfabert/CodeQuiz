@@ -1,38 +1,42 @@
-//Arrays are set up in this order
-//0-Question
-//1-Option 1
-//2-Option 2
-//3-Option 3
-//4-Option 4
-//5-Number of correct answer
+//All Elements
+var start = document.getElementById('start');
+//var timer = 
+//var correct = 
+//var totalQuestions = 
+var question = document.getElementById('question')
+var option1 = document.getElementById('a1')
+var option2 = document.getElementById('a2')
+var option3 = document.getElementById('a3')
+var option4 = document.getElementById('a4')
+
+
+//Question Object
+var questions = [
+    { q:"The first Question will go here and it should be about this long", a: "Option #1", b: "Option #2", c: "Option #3", d: "Option #4", answer: 1},
+    { q:"The second Question will go here and it should be about this long", a: "Option #1", b: "Option #2", c: "Option #3", d: "Option #4", answer: 2},
+    { q:"The third Question will go here and it should be about this long", a: "Option #1", b: "Option #2", c: "Option #3", d: "Option #4", answer: 3},
+    { q:"The fourth Question will go here and it should be about this long", a: "Option #1", b: "Option #2", c: "Option #3", d: "Option #4", answer: 4},
+    { q:"The fifth Question will go here and it should be about this long", a: "Option #1", b: "Option #2", c: "Option #3", d: "Option #4", answer: 1},
+        ];
 
 
 //Listen for Button to be clicked
-var start = document.getElementById('start');
-start.addEventListener('click', function(){
-    //Start Timer
+    start.addEventListener('click', function() {
+        //Start Timer
 
-
-    //Question arrays
-    var Q1 = ['The first question will go here and the answers will line up below', 'Answer1', 'Answer2', 'Answer3', 'Answer4', 3];
-    var Q2 = ['This is the second question and it should be about this long or so', 'Answer1', 'Answer2', 'Answer3', 'Answer4', 1];
-
-    //Make variables for question and options
-    document.getElementById('question').innerHTML = Q1[0];
-    document.getElementById('a1').innerHTML = Q1[1];
-    document.getElementById('a2').innerHTML = Q1[2];
-    document.getElementById('a3').innerHTML = Q1[3];
-    document.getElementById('a4').innerHTML = Q1[4];
+        //Start Asking questions questions
+        i = 0;
+        console.log("It has begun");
+        //questionDisplay(i,questions);
+        //userAnswer(i,questions);
+    });
+      
+//Functions called by question loop
 
 
 
-
+ 
     //variable to calculation correct answers
 
     //Create Results Page
-
-}, false);
-
-
-
 
