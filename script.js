@@ -1,9 +1,5 @@
 var start = document.getElementById('start');
 //var timer = 
-//var correct = 
-//var totalQuestions = 
-
-
 
 //Question Object
 var questions = [
@@ -22,6 +18,12 @@ var questions = [
         //Start Asking questions questions
         i = 0;
         console.log("It has begun");
+        var splash = document.getElementById('splash');
+        splash.style.display = "none";
+        var quiz = document.getElementById('quiz');
+        quiz.style.display = "block";
+        var results = document.getElementById('results');
+
         questionDisplay(i,questions);
     });
 //Display of Questions//
@@ -34,6 +36,9 @@ function questionDisplay(){
     var option4 = document.getElementById('a4').innerHTML=questions[i].d;
 }
 
+var correctAnswers = 0;
+var totalQuestions = 0;
+
 //User Input and Scoring//
 function userAnswer(userAnswer){
     console.log(userAnswer)
@@ -42,8 +47,13 @@ function userAnswer(userAnswer){
     //check user answer
     if(userAnswer == questions[i].answer){
         console.log('they got it right');
+        correctAnswers++;
+        totalQuestions++;
+        console.log(correctAnswers, totalQuestions);
     }else{
         console.log('they got it wrong');
+        totalQuestions++;
+        console.log(correctAnswers, totalQuestions);
     }
 
     i++ 
@@ -51,10 +61,16 @@ function userAnswer(userAnswer){
     if(i < questions.length){               
         questionDisplay(i,questions);
     }else{
+        //We are done
         console.log('we are done!');
+        quiz.style.display = "none";
+        results.style.display = 'block';
+
+        
+
     }
 }
       
 
-//Create Results Page
+
 

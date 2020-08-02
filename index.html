@@ -9,11 +9,12 @@
 
 <body>
 
+  <h1>The Code Quiz</h1>
+
     <!-- Splash-->
-    <div class="container">
+    <div class="container" id = 'splash'>
         <div class="row, text-center">
-          <div class="col-sm">
-            <h1>The Code Quiz</h1>
+          <div class="col-sm" >
             <h4>Welcome to 'The Code Quiz'.  We have 20 questions ready for you.  However, you will only be given 2 minutes to answer.  Don't miss, or that two mintues will drop off quickly.  Press the start button below to begin and good luck!</h4>
             <button type="button" class="btn btn-success" id="start">Start!</button>
           </div>
@@ -22,7 +23,7 @@
 
 
     <!-- Quiz -->
-    <div class="container">
+    <div class="container" id = 'quiz' style="display: none;">
         <div class="row">
           <div class="col-sm-9">
             <h4 id="question">The questions will roll out here one by one and then below you'll have options</h4>
@@ -47,7 +48,7 @@
 
 
     <!-- Results -->
-    <div class="container">
+    <div class="container" id = 'results' style="display: none;">
       <div class="row">
         <div class="col-sm-9">
           <div class="row">You scored:</div>
