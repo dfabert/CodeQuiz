@@ -15,13 +15,21 @@ var questions = [
     start.addEventListener('click', function() {
         //Start Timer
         var timerDisplay = document.getElementById('timer');
-        timer = 120;
+        timer = 3;
 
-        function countdown () {
+        function countdown () { 
             setInterval(function(){
                 timer--;
                 timerDisplay.innerHTML = timer;
+                if(timer <= 0){
+                quizOver(questions, 2000);
+                stopCountdown();      //This is not functional
+                }
             },1000);
+        }     
+
+        function stopCountdown(){
+            clearInterval(countdown);
         }
         countdown();
 
@@ -75,7 +83,10 @@ function userAnswer(userAnswer){
     i++ 
     score.innerHTML=correctAnswers;
     outOf.innerHTML=totalQuestions;
+    quizOver(questions, i);
+}
 
+function quizOver(questions, i){
     //if we keep going or not
     if(i < questions.length){               
         questionDisplay(i,questions);
