@@ -14,8 +14,18 @@ var questions = [
 //Listen for Button to be clicked
     start.addEventListener('click', function() {
         //Start Timer
+        var timerDisplay = document.getElementById('timer');
+        timer = 120;
 
-        //Start Asking questions questions
+        function countdown () {
+            setInterval(function(){
+                timer--;
+                timerDisplay.innerHTML = timer;
+            },1000);
+        }
+        countdown();
+
+        //Start Asking questions
         i = 0;
         console.log("It has begun");
         questionDisplay(i,questions);
@@ -54,10 +64,12 @@ function userAnswer(userAnswer){
         correctAnswers++;
         totalQuestions++;
         console.log(correctAnswers, totalQuestions);
+        
     }else{
         console.log('they got it wrong');
         totalQuestions++;
         console.log(correctAnswers, totalQuestions);
+        timer = timer - 30;
     }
 
     i++ 
@@ -86,7 +98,7 @@ function userAnswer(userAnswer){
             }else{submit.style.display = 'none';}
 
             localStorage.setItem('initials', initials);
-            localStorage.setItem('correctAnswers');
+            localStorage.setItem('correctAnswers', correctAnswers);
         })
     }
 }
