@@ -21,7 +21,7 @@ var questions = [
             setInterval(function(){
                 timer--;
 
-                /timerDisplay
+                //timerDisplay
                 var minutes = (Math.floor(timer/60));
                 mm = minutes.toString();
                 var seconds = (timer%60);
@@ -32,7 +32,7 @@ var questions = [
                 else{ss = seconds.toString();}
                 var minsec = mm + ':' + ss;
                 timerDisplay.innerHTML = minsec;
-                
+
                 if(timer <= 0){
                 quizOver(questions, 2000);
                 stopCountdown();      //This is not functional
@@ -77,18 +77,23 @@ var outOf = document.getElementById('outOf');
 function userAnswer(userAnswer){
     console.log(userAnswer)
     console.log(questions[i].answer);
+
+    var correctDisplay = document.getElementById('correct');
+    var wrongDisplay = document.getElementById('wrong');
     
     //check user answer
     if(userAnswer == questions[i].answer){
-        console.log('they got it right');
         correctAnswers++;
         totalQuestions++;
+        correctDisplay.style.display = 'block';
+        wrongDisplay.style.display = "none";
         
 
     }else{
-        console.log('they got it wrong');
         totalQuestions++;
-        timer = timer - 30;
+        timer  -= 30;
+        correctDisplay.style.display = 'none';
+        wrongDisplay.style.display = 'block';
     }
 
     i++ 
@@ -102,7 +107,6 @@ function quizOver(questions, i){
     if(i < questions.length){               
         questionDisplay(i,questions);
     }else{
-        console.log('we are done!');
         quiz.style.display = "none";
         results.style.display = 'block';
 
@@ -123,6 +127,8 @@ function quizOver(questions, i){
             localStorage.setItem('correctAnswers', correctAnswers);
         })
     }
+
+    
 }
       
 

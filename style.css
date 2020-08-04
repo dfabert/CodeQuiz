@@ -19,3 +19,16 @@ li {
     box-shadow: 5px 10px 8px #888888;
     margin: 5px;
 }
+
+#correct {
+    fontsize: 50px;
+    font-weight: bold;
+    background-color: green;
+}
+
+#wrong {
+    fontsize: 50px;
+    font-weight: bold;
+    background-color: red;
+}
+
