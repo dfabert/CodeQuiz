@@ -3,11 +3,11 @@ var start = document.getElementById('start');
 
 //Question Object
 var questions = [
-    { q:"The first Question will go here and it should be about this long", a: "Option #1", b: "Option #2", c: "Option #3", d: "Option #4", answer: 'a'},
-    { q:"The second Question will go here and it should be about this long", a: "Option #11", b: "Option #22", c: "Option #33", d: "Option #44", answer: 'b'},
-    { q:"The third Question will go here and it should be about this long", a: "Option #21", b: "Option #23", c: "Option #37", d: "Option #4", answer: 'c'},
-    { q:"The fourth Question will go here and it should be about this long", a: "Option #1", b: "Option #2", c: "Option #3", d: "Option #4", answer: 'd'},
-    { q:"The fifth Question will go here and it should be about this long", a: "Option #1", b: "Option #2", c: "Option #3", d: "Option #4", answer: 'e'},
+    { q:"What is the browser's way of indicating something has happened?", a: "Event", b: "Element", c: "Delegation", d: "Alert", answer: 'a'},
+    { q:"Which command would you use to access or update the contexts of a text node?", a: "textContent", b: "appendChild", c: "nodeValue", d: "innerHTML", answer: 'c'},
+    { q:"Which is not a type of node?", a: "Event", b: "Element", c: "Attribute", d: "text", answer: 'a'},
+    { q:"In the code 'el.addEventListener('blur', function())', which part is the event?", a: "el", b: "add", c: "blur", d: "function", answer: 'c'},
+    { q:"Which of these is not a type of data for javascript", a: "numeric", b: "on/off", c: "boolean", d: "array", answer: 'b'},
         ];
 
 
@@ -15,12 +15,24 @@ var questions = [
     start.addEventListener('click', function() {
         //Start Timer
         var timerDisplay = document.getElementById('timer');
-        timer = 3;
+        timer = 120;
 
         function countdown () { 
             setInterval(function(){
                 timer--;
-                timerDisplay.innerHTML = timer;
+
+                /timerDisplay
+                var minutes = (Math.floor(timer/60));
+                mm = minutes.toString();
+                var seconds = (timer%60);
+                if(seconds < 10){
+                    ss = seconds.toString();
+                    ss = "0" + seconds;
+                }
+                else{ss = seconds.toString();}
+                var minsec = mm + ':' + ss;
+                timerDisplay.innerHTML = minsec;
+                
                 if(timer <= 0){
                 quizOver(questions, 2000);
                 stopCountdown();      //This is not functional
@@ -71,12 +83,11 @@ function userAnswer(userAnswer){
         console.log('they got it right');
         correctAnswers++;
         totalQuestions++;
-        console.log(correctAnswers, totalQuestions);
         
+
     }else{
         console.log('they got it wrong');
         totalQuestions++;
-        console.log(correctAnswers, totalQuestions);
         timer = timer - 30;
     }
 
