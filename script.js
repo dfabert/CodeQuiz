@@ -35,7 +35,7 @@ var questions = [
 
                 if(timer <= 0){
                 quizOver(questions, 2000);
-                stopCountdown();      //This is not functional
+                //stopCountdown();      //This is not functional
                 }
             },1000);
         }     
@@ -68,6 +68,7 @@ function questionDisplay(){
     var option4 = document.getElementById('a4').innerHTML=questions[i].d;
 }
 
+//Setting starting score to zero
 var correctAnswers = 0;
 var totalQuestions = 0;
 var score = document.getElementById('score');
@@ -117,18 +118,49 @@ function quizOver(questions, i){
 
         submit.addEventListener('click', function(event) {
             var initials = document.querySelector("#initials").value;
-            console.log(initials);
+            
 
-            if (initials === '') {
-                alert('Initials Cannot Be Blank');
-            }else{submit.style.display = 'none';}
+            ///if (initials === '') {
+            ///    alert('Initials Cannot Be Blank');
+            ///    quizOver(questions, 2000);
+            ///}else{submit.style.display = 'none';}
 
-            localStorage.setItem('initials', initials);
-            localStorage.setItem('correctAnswers', correctAnswers);
+
+            ///High Score Saving/Sorting
+            var highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+            var finalScore = {
+                name:  initials,
+                score:  correctAnswers,
+            }
+            highScores.push(finalScore);
+            highScores.sort((a,b) =>  b.score - a.score);
+            highScores.splice(10);
+
+            //Display of High Scores
+            for(var i = 0; i < highScores.length; i++){
+                var newScoreLine = document.createElement('li');
+                var scoreText = document.createTextNode(highScores[i].name + ':  ' + highScores[i].score);
+                newScoreLine.appendChild(scoreText);
+                var position = document.getElementById('highScores');
+                position.appendChild(newScoreLine);
+            }
+
+            //Saving Back to Local Storage
+            localStorage.setItem('highScores', JSON.stringify(highScores));
+
+            //Option To Clear High Scores
+            var clear = document.getElementById('clear');
+            clear.style.display = 'block';
+
+            var clearClear = document.getElementById('allTimeScores');
+
+            clear.addEventListener('click', function() {
+                localStorage.clear();
+                clearClear.style.display = 'none';
+            })
+
         })
     }
-
-    
 }
       
 
