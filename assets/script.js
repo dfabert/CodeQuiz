@@ -15,10 +15,10 @@ var questions = [
     start.addEventListener('click', function() {
         //Start Timer
         var timerDisplay = document.getElementById('timer');
-        timer = 120;
+        timer = 2;
 
         function countdown () { 
-            setInterval(function(){
+            var interval = setInterval(function(){
                 timer--;
 
                 //timerDisplay
@@ -35,8 +35,11 @@ var questions = [
 
                 if(timer <= 0){
                 quizOver(questions, 2000);
-                //stopCountdown();      //This is not functional
+                clearInterval(interval)
                 }
+
+                console.log(timer);
+
             },1000);
         }     
 
