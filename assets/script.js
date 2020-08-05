@@ -15,7 +15,7 @@ var questions = [
     start.addEventListener('click', function() {
         //Start Timer
         var timerDisplay = document.getElementById('timer');
-        timer = 2;
+        timer = 120;
 
         function countdown () { 
             var interval = setInterval(function(){
