@@ -13,6 +13,7 @@ var questions = [
 
 //Listen for Button to be clicked
     start.addEventListener('click', function() {
+
         //Start Timer
         var timerDisplay = document.getElementById('timer');
         timer = 120;
@@ -34,12 +35,9 @@ var questions = [
                 timerDisplay.innerHTML = minsec;
 
                 if(timer <= 0){
-                quizOver(questions, 2000);
+                quizOver(questions, 2000);  //The number 2000 is just to push the question number over the top
                 clearInterval(interval)
                 }
-
-                console.log(timer);
-
             },1000);
         }     
 
@@ -98,6 +96,7 @@ function userAnswer(userAnswer){
         wrongDisplay.style.display = 'block';
     }
 
+    //add to index, update scores, and send to quizOver
     i++ 
     score.innerHTML=correctAnswers;
     outOf.innerHTML=totalQuestions;
@@ -120,13 +119,6 @@ function quizOver(questions, i){
         submit.addEventListener('click', function(event) {
             var initials = document.querySelector("#initials").value;
             
-
-            ///if (initials === '') {
-            ///    alert('Initials Cannot Be Blank');
-            ///    quizOver(questions, 2000);
-            ///}else{submit.style.display = 'none';}
-
-
             ///High Score Saving/Sorting
             var highScores = JSON.parse(localStorage.getItem('highScores')) || [];
             var finalScore = {
