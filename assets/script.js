@@ -50,7 +50,6 @@ var questions = [
 
         //Start Asking questions
         i = 0;
-        console.log("It has begun");
         questionDisplay(i,questions);
 
         //Change styles to display correct parts of HTML
@@ -63,7 +62,6 @@ var questions = [
 
 //Display of Questions//
 function questionDisplay(){
-    console.log('questionDisplay');
     var question = document.getElementById('question').innerHTML=questions[i].q;
     var option1 = document.getElementById('a1').innerHTML=questions[i].a;
     var option2 = document.getElementById('a2').innerHTML=questions[i].b;
